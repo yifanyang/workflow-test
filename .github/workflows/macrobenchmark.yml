@@ -10,12 +10,16 @@ on:
   workflow_dispatch:
     inputs:
       commit:
+        default: ''
         # description: 'Which commit to run the test on'
       diff:
+        default: false
         # description: 'Whether to compare against another commit'
       base_commit:
+        default: ''
         # description: 'If comparing, which commit to diff against'
       pull_request:
+        default: ''
         # description: 'If comparing, which pull request to post report to'
 
 jobs:
