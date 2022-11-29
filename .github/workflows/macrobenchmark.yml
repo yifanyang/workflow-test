@@ -12,6 +12,7 @@ on:
       commit:
         # description: 'Which commit to run the test on'
       diff:
+        type: boolean
         default: false
         # description: 'Whether to compare against another commit'
       base_commit:
