@@ -10,15 +10,22 @@ on:
   workflow_dispatch:
     inputs:
       commit:
-        # description: 'Which commit to run the test on'
+        description: |
+          Which commit to run the test on?
+          Defaults to the tip commit on the selected branch.
       diff:
+        description: |
+          Whether to compare measurements against another commit?
+          Defaults to false (run test without diffing).
         type: boolean
-        default: false
-        # description: 'Whether to compare against another commit'
       base_commit:
-        # description: 'If comparing, which commit to diff against'
+        description: |
+          If diffing, which commit to diff against?
+          Required only if `diff` is enabled.
       pull_request:
-        # description: 'If comparing, which pull request to post report to'
+        description: |
+          If diffing, which pull request to post the results to?
+          Required only if `diff` is enabled.
 
 jobs:
   startup_time:
