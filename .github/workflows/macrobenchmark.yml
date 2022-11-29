@@ -27,4 +27,9 @@ jobs:
     name: Startup Time
     runs-on: ubuntu-latest
     steps:
-      - run: echo 'Running startup time tests...'
+      - run: |
+          echo 'Running startup time tests...'
+          echo 'commit: ${{ inputs.commit }}'
+          echo 'diff: ${{ inputs.diff }}'
+          echo 'base_commit: ${{ inputs.base_commit }}'
+          echo 'pull_request: ${{ inputs.pull_request }}'
