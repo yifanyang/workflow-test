@@ -1,0 +1,26 @@
+name: Health Metrics
+
+on:
+  push:
+    branches:
+      - master
+      # other feature branches
+  pull_request:
+    types: [labeled]
+  workflow_dispatch:
+    inputs:
+      commit:
+        description: 'Which commit to run the test on'
+      diff:
+        description: 'Whether to compare against another commit'
+      base_commit:
+        description: 'If comparing, which commit to diff against'
+      pull_request:
+        description: 'If comparing, which pull request to post report to'
+
+jobs:
+  startup_time:
+    name: Startup Time
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'Running startup time tests...'
