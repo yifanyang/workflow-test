@@ -25,7 +25,8 @@ jobs:
     name: Startup Time
     runs-on: ubuntu-latest
     steps:
-      - run: |
+      - name: Output inputs
+        run: |
           echo 'commit: ${{ inputs.commit }}'
           echo 'diff: ${{ inputs.diff }}'
           echo 'base_commit: ${{ inputs.base_commit }}'
