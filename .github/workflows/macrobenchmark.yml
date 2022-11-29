@@ -10,13 +10,13 @@ on:
   workflow_dispatch:
     inputs:
       commit:
-        description: 'Which commit to run the test on'
+        # description: 'Which commit to run the test on'
       diff:
-        description: 'Whether to compare against another commit'
+        # description: 'Whether to compare against another commit'
       base_commit:
-        description: 'If comparing, which commit to diff against'
+        # description: 'If comparing, which commit to diff against'
       pull_request:
-        description: 'If comparing, which pull request to post report to'
+        # description: 'If comparing, which pull request to post report to'
 
 jobs:
   startup_time:
