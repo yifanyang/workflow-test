@@ -26,6 +26,28 @@ jobs:
     name: Startup Time
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+        with:
+
+      - name: Determine test metadata
+        uses: actions/github-script@v6
+        with:
+          script: |
+            if (context.github.event_name === 'push') {
+              core.setOutput('continue', true)
+              core.setOutput('commit', context.github.sha)
+              core.setOutput('diff', false)
+              core.setOutput('base_commit', null)
+              core.setOutput('pull_request', null)
+            } else if (context.github.event_name === 'pull_request') {
+              if (context.github.event.label.name === 'startup-time') {
+                core.setOutput('continue', true)
+                core.setOutput('commit', context.github.sha)
+                core.setOutput('diff', true)
+                core.setOutput('base_commit', null)
+                core.setOutput('pull_request', context.github.event.number)
+              }
+            }
       - name: Output inputs
         run: |
           echo 'commit: ${{ inputs.commit }}'
